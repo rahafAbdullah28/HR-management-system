@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    color:white;
+    background-color:#FF731D;
+    display:flex;
+    justify-content:space-around;
+    align-items: center;
+    height: 60px;
+}
+header h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 32px;
+}
+header ul{
+    display: flex;
+    gap:35px;
+    font-size: 23px;
+}
+header ul li{
+    list-style: none;
+}
+header ul li a {
+    text-decoration: none;
+}
+main{
+    
+    min-height:90vh;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    gap: 20px ;
+    font-size: 12px ;
+}
