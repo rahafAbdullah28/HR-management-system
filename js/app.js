@@ -1,19 +1,12 @@
 'use strict';
-    
-function Employee(name,department,level,image){
-     this.employeeId=0;
-    this.empName=name;
-    this.empDep=department;
-    this.empLevel=level;
-    this.empImage=image;
-     this.empSalary=0;
+function employeeId(){
+     var val = Math.floor(1000 + Math.random() * 9000);
+     return val;
 }
-Employee.prototype.empId = function(){
-        this.employeeId= Math.floor(1000 + Math.random() * 9000);
-}
-Employee.prototype.employeeSalary = function(){
+
+function empSalary(level){
      let min,max,salary;
-     switch(this.empLevel){
+     switch(level){
           case'Senior':
           min = 1500;
           max = 2000;
@@ -31,31 +24,28 @@ Employee.prototype.employeeSalary = function(){
           }
           min = Math.ceil(min);
           max = Math.floor(max);
-         salary = Math.floor(Math.random()*(max-min)+min);
-         this.empSalary=salary-(salary*0.075)//tax
+     salary = Math.floor(Math.random()*(max-min)+min);
+     return salary-(salary*0.075)//tax
      }
+    
+function Employee(id,name,department,level,image,salary){
+    this.empId=id;
+    this.empName=name;
+    this.empDep=department;
+    this.empLevel=level;
+    this.empImage=image;
+    this.empSalary=salary;
+   
+}
 
-let Ghazi= new Employee("Ghazi Samer","Administration","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
-let Lana= new Employee("Lana Ali","Finance","Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
-let Tamara=new Employee("Tamara Ayoub","Marketing", "Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
-let Safi=new Employee("Safi Walid","Administration","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
-let Omar=new Employee("Omar Zaid","Development","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
-let Rana=new Employee("Rana Saleh","Development","Junior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
-let Hadi=new Employee("Hadi Ahmad","Finance","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
-Ghazi.empId();
-Ghazi.employeeSalary();
-Lana.empId();
-Lana.employeeSalary();
-Tamara.empId();
-Tamara.employeeSalary();
-Safi.empId();
-Safi.employeeSalary();
-Omar.empId();
-Omar.employeeSalary();
-Rana.empId();
-Rana.employeeSalary();
-Hadi.empId();
-Hadi.employeeSalary();
+
+let Ghazi= new Employee(employeeId(),"Ghazi Samer","Administration","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",empSalary('Senior'));
+let Lana= new Employee(employeeId(),"Lana Ali","Finance","Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",empSalary('Senior'));
+let Tamara=new Employee(employeeId(),"Tamara Ayoub","Marketing", "Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",empSalary('Senior'));
+let Safi=new Employee(employeeId(),"Safi Walid","Administration","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",empSalary('Mid-senior'));
+let Omar=new Employee(employeeId(),"Omar Zaid","Development","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",empSalary('Senior'));
+let Rana=new Employee(employeeId(),"Rana Saleh","Development","Junior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",empSalary('Junior'));
+let Hadi=new Employee(employeeId(),"Hadi Ahmad","Finance","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",empSalary('Mid-Senior'));
 
 
 console.table(Ghazi);
