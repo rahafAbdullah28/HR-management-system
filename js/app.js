@@ -1,14 +1,19 @@
-"use strict";
-     
-function employeeId(){
-     var val = Math.floor(1000 + Math.random() * 9000);
-     console.log(val);
-     return val;
+'use strict';
+    
+function Employee(name,department,level,image){
+     this.employeeId=0;
+    this.empName=name;
+    this.empDep=department;
+    this.empLevel=level;
+    this.empImage=image;
+     this.empSalary=0;
 }
-
-function calculateSalary(level){
+Employee.prototype.empId = function(){
+        this.employeeId= Math.floor(1000 + Math.random() * 9000);
+}
+Employee.prototype.employeeSalary = function(){
      let min,max,salary;
-     switch(level){
+     switch(this.empLevel){
           case'Senior':
           min = 1500;
           max = 2000;
@@ -26,95 +31,52 @@ function calculateSalary(level){
           }
           min = Math.ceil(min);
           max = Math.floor(max);
-     salary = Math.floor(Math.random()*(max-min)+min);
-     return salary-(salary*0.075)//tax
+         salary = Math.floor(Math.random()*(max-min)+min);
+         this.empSalary=salary-(salary*0.075)//tax
      }
 
-let Ghazi = {
-     Id : employeeId(),
-     fullName:"Ghazi Samer",
-      Department:"Administration",
-      level: "Senior",
-      imageUrl:"https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",
-      salary: calculateSalary('Senior'),
-      };
-
- let Lana = {
-      Id : employeeId() ,
-      fullName:"Lana Ali",
-      Department:"Finance",
-      level: "Senior",
-      imageUrl:"https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",
-      salary: calculateSalary('Senior'),
-       };
-
- let Tamara = {
-       Id : employeeId() ,
-       fullName: "Tamara Ayoub",
-       Department:"Marketing",
-       level: "Senior",
-       imageUrl:"https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",
-       salary: calculateSalary('Senior'),
-        };
-
- let Safi = {
-        Id : employeeId() ,
-        fullName: "Safi Walid",
-        Department:"Administration",
-        level: "Mid-Senior",
-        imageUrl :"https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",
-        salary: calculateSalary('Mid-Senior'),
-         };
- let Omar = {
-          Id : employeeId() ,
-          fullName: "Omar Zaid",
-          Department:"Development",
-          level: "Senior",
-          imageUrl :"https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",
-          salary: calculateSalary('Senior'),
-           };
- let Rana = {
-               Id : employeeId() ,
-               fullName: "Rana Saleh",
-               Department:"Development",
-               level: "Junior",
-               imageUrl:"https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg",
-               salary: calculateSalary('Junior'),
-                };
- let Hadi = {
-                    Id : employeeId() ,
-                    fullName: "Hadi Ahmad",
-                    Department:"Finance",
-                    level: "Mid-Senior",
-                    imageUrl :"https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png",
-                    salary: calculateSalary('Mid-Senior'),
-                     };
-     
-
-         
-         console.table(Ghazi);
-         console.table(Lana);
-         console.table(Tamara);
-         console.table(Safi);
-         console.table(Omar);
-         console.table(Rana);
-         console.table(Hadi);
+let Ghazi= new Employee("Ghazi Samer","Administration","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
+let Lana= new Employee("Lana Ali","Finance","Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
+let Tamara=new Employee("Tamara Ayoub","Marketing", "Senior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
+let Safi=new Employee("Safi Walid","Administration","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
+let Omar=new Employee("Omar Zaid","Development","Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
+let Rana=new Employee("Rana Saleh","Development","Junior","https://thumb.ac-illust.com/7f/7fa06e257a29ce0e1d568afe5a4a1dda_t.jpeg");
+let Hadi=new Employee("Hadi Ahmad","Finance","Mid-Senior","https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/18975/office-worker-clipart-xl.png");
+Ghazi.empId();
+Ghazi.employeeSalary();
+Lana.empId();
+Lana.employeeSalary();
+Tamara.empId();
+Tamara.employeeSalary();
+Safi.empId();
+Safi.employeeSalary();
+Omar.empId();
+Omar.employeeSalary();
+Rana.empId();
+Rana.employeeSalary();
+Hadi.empId();
+Hadi.employeeSalary();
 
 
-         document.getElementById("eName1").innerHTML = " Employee name =  " + Ghazi.fullName  ;
-         document.getElementById("eSallary1").innerHTML = "Employee Sallary =  " + Ghazi.salary  ;
-         document.getElementById("eName2").innerHTML = " Employee name =  " + Lana.fullName  ;
-         document.getElementById("eSallary2").innerHTML = "Employee Sallary =  " + Lana.salary  ;
-         document.getElementById("eName3").innerHTML = " Employee name =  " + Tamara.fullName  ;
-         document.getElementById("eSallary3").innerHTML = "Employee Sallary =  " + Tamara.salary  ;
-         document.getElementById("eName4").innerHTML = " Employee name =  " + Safi.fullName  ;
-         document.getElementById("eSallary4").innerHTML = "Employee Sallary =  " + Safi.salary  ;
-         document.getElementById("eName5").innerHTML = " Employee name =  " + Omar.fullName  ;
-         document.getElementById("eSallary5").innerHTML = "Employee Sallary =  " + Omar.salary  ;
-         document.getElementById("eName6").innerHTML = " Employee name =  " + Rana.fullName  ;
-         document.getElementById("eSallary6").innerHTML = "Employee Sallary =  " + Rana.salary  ;
-         document.getElementById("eName7").innerHTML = " Employee name =  " + Hadi.fullName  ;
-         document.getElementById("eSallary7").innerHTML = "Employee Sallary =  " + Hadi.salary  ;
-         
-         
-     
+console.table(Ghazi);
+console.table(Lana);
+console.table(Tamara);
+console.table(Safi);
+console.table(Omar);
+console.table(Rana);
+console.table(Hadi);
+
+Employee.prototype.renderInfo=function(){
+document.write(`<h6> Employee Name :  ${this.empName} </h6>`);
+document.write(`<h6> Employee Department :  ${this.empDep} </h6>`);
+document.write(`<h6> Employee Salary :  ${this.empSalary} </h6>`);
+document.write(`</br>`);
+}
+Ghazi.renderInfo();
+Lana.renderInfo();
+Tamara.renderInfo();
+Safi.renderInfo();
+Omar.renderInfo();
+Rana.renderInfo();
+Hadi.renderInfo();
+
