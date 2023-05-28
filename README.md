@@ -10,3 +10,8 @@ lab 09:
 - create objects by constructer and it's properties 
 - convert the methods to prototype function 
 - print in the browser name , department and salary  
+
+lab 10:
+-  add style to css and call it in javascript
+- use Dom to make card for each employee and print thier info 
+- make a render method 
