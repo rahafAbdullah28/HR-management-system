@@ -5,11 +5,11 @@
 }
 header{
     color:white;
-    background-color:#FF731D;
+    background-color:#539165;
     display:flex;
     justify-content:space-around;
     align-items: center;
-    height: 60px;
+    height: 55px;
 }
 header h1{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -27,16 +27,47 @@ header ul li a {
     text-decoration: none;
 }
 main{
-    color: rgb(40, 23, 88);
-    min-height:90vh;
+    background-color: #DDF7E3;
+    /* color: rgb(40, 23, 88); */
+    min-height:100vh;
     font-size: 25px;
-    margin-top: 100px;
     text-align: center;
+}
+.styleClass{
+    display:flex;
+    padding-Top:150px;
+    margin-Right:50px;
+    margin-Left:50px;
+    padding-Bottom:250px;
+    justify-Content:space-around;
+}
+.styleChild{
+    width :320px;
+    height:400px;
+    background-Color:#A0D8B3;
+    border-Radius:5px;
+    border: 3px solid #539165;
+}
+.styleImg{
+    width:200px;
+    height:200px;
+    margin-Top:20px;
+    border-Radius:5px;
+}
+.styleText{
+    color:white;
+    margin-Top:10px;   
+    font-Size:20px;
 }
 footer{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px ;
     font-size: 12px ;
+    background-color:#539165;
+    color: white  ;
+    height: 30px;
 }
+
 
